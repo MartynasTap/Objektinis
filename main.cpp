@@ -6,11 +6,23 @@ int main()
     studentas laikinas;
     vector<studentas> grupe;
     for (int j=0; j<2;j++){
-        ivedimas(laikinas);
-        galutinis_vid(laikinas);
-        galutinis_med(laikinas);
-        grupe.push_back(laikinas);
-        laikinas.paz.clear();
+        int k;
+        cout << "Jei norite, kad sio studento pazymiai butu generuojami atsitiktinai, iveskite 1: ";
+        cin >> k;
+        if (k==1){
+            atsitiktiniai(laikinas);
+            galutinis_vid(laikinas);
+            galutinis_med(laikinas);
+            grupe.push_back(laikinas);
+            laikinas.paz.clear();
+        }
+        else{
+            ivedimas(laikinas);
+            galutinis_vid(laikinas);
+            galutinis_med(laikinas);
+            grupe.push_back(laikinas);
+            laikinas.paz.clear();
+        }
     }
     int n;
     cout << "Jeigu norite galutinio pazymio su vidurkiu iveskite 1, jei su mediana - 2: ";

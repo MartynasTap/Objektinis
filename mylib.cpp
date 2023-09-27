@@ -38,3 +38,16 @@ void galutinis_med(studentas &Temp){
     }
     Temp.rez_med=(Temp.rez_med*0.4)+(Temp.egz*0.6);
 }
+void atsitiktiniai(studentas &Temp){
+    cout << "Iveskite varda ir pavarde: ";
+    cin >> Temp.var >> Temp.pav;
+    int n;
+    cout << "Iveskite, kiek studentas turejo namu darbu: ";
+    cin >> n;
+    srand((unsigned) time(NULL));
+    for (int i=0;i<n;i++){
+        int k = 1 + (rand() % 10);
+        Temp.paz.push_back(k);
+    }
+    Temp.egz=1 + (rand() % 10);
+}
