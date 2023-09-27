@@ -7,6 +7,8 @@
 #include <iomanip>
 #include <cstdio>
 #include <bits/stdc++.h>
+#include <cstdlib>
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -18,6 +20,8 @@ using std::left;
 using std::right;
 using std::setprecision;
 using std::nth_element;
+using std::rand;
+using std::srand;
 
 struct studentas{
     string var,pav;
@@ -32,6 +36,7 @@ void galutinis_vid(studentas &Temp);
 void isvedimas(studentas &Temp,float galutinis);
 void mediana(studentas &Temp);
 void galutinis_med(studentas &Temp);
+void atsitiktiniai(studentas &Temp);
 
 
 #endif // MYLIB_H_INCLUDED
