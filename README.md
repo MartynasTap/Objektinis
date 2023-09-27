@@ -1,2 +1,2 @@
 # Objektinis
-Programa papildyta medianos skaiciavimo funkcija, vartotojas gali pasirinkti ar nori matyti galutini pazymi suskaiciuota su mediana ar vidurkiu. Prideta nth_element funkcija jos skaiciavimui.
+Programa papildyta galimybe vesti pazymius nezinant ju kieko is anksto, vartotojo yra klausiama, ar jau ivesti visi duomenys, ir jei taip, stabdoma programa.
