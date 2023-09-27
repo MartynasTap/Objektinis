@@ -1,2 +1,2 @@
 # Objektinis
-Programa papildyta galimybe vesti pazymius nezinant ju kieko is anksto, vartotojo yra klausiama, ar jau ivesti visi duomenys, ir jei taip, stabdoma programa.
+Programa papildyta galimybe atsitiktinai generuoti studento namu darbu ir egzamino pazymius. Vartojo yra klausia pries ivedant bet kurio studento pazymius, ar jis noretu, kad jie butu generuoti atsitiktinai.
