@@ -2,19 +2,20 @@
 
 void ivedimas(studentas &Temp){
     cout << "Iveskite varda ir pavarde: ";
-        cin >> Temp.var >> Temp.pav;
-        cout << "Kiek pazymiu turi studentas: ";
-        int n;
+    cin >> Temp.var >> Temp.pav;
+    int i=0;
+    while(1){
+        int k,n;
+        cout << "Iveskite " << i+1 << " pazymi: ";
+        cin >> k;
+        Temp.paz.push_back(k);
+        cout << "Jei viska ivedete, parasykite 1: ";
         cin >> n;
-        for (int i=0;i<n;i++)
-        {
-            int k;
-            cout << "Iveskite " << i+1 << " pazymi: ";
-            cin >> k;
-            Temp.paz.push_back(k);
+        if (n==1){break;}
+        i++;
         }
-        cout << "Iveskite egzamina: ";
-        cin >> Temp.egz;
+    cout << "Iveskite egzamina: ";
+    cin >> Temp.egz;
 }
 void galutinis_vid(studentas &Temp){
     float k=0,j=0;

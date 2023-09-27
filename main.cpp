@@ -31,6 +31,5 @@ int main()
             isvedimas(a,a.rez_med);
         }
     }
-
     return 0;
 }
