@@ -24,7 +24,11 @@ void ivedimas(studentas &Temp){
 void galutinis_vid(studentas &Temp){
     float k=0,j=0;
     for(auto a: Temp.paz){k=k+a; j++;}
-    Temp.rez_vid=(k/j)*0.4+Temp.egz*0.6;
+    try{
+    if (j>0){Temp.rez_vid=(k/j)*0.4+Temp.egz*0.6;}
+    else {throw(j);}}
+    catch(...){
+    cout << "Negalima skaiciuoti vidurkio, nebuvo ivesta pazymiu" << endl;}
 }
 void isvedimas(studentas &Temp, float galutinis){
     cout << setw(15) << left <<Temp.var << setw(15) << left << Temp.pav;
