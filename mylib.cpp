@@ -5,17 +5,21 @@ void ivedimas(studentas &Temp){
     cin >> Temp.var >> Temp.pav;
     int i=0;
     while(1){
-        int k,n;
+        int paz,n;
         cout << "Iveskite " << i+1 << " pazymi: ";
-        cin >> k;
-        Temp.paz.push_back(k);
+        try{
+        cin >> paz;
+        if (paz>=1 && paz<=10){
+        Temp.paz.push_back(paz);
         cout << "Jei viska ivedete, parasykite 1: ";
         cin >> n;
         if (n==1){break;}
-        i++;
-        }
-    cout << "Iveskite egzamina: ";
-    cin >> Temp.egz;
+        i++;}
+        else {throw(paz);}}
+        catch(...){
+        cout << "Neteisinga ivestis, pazymis turi buti sveikas skaicius tarp 1 ir 10" << endl;}}
+        cout << "Iveskite egzamina: ";
+        cin >> Temp.egz;
 }
 void galutinis_vid(studentas &Temp){
     float k=0,j=0;

@@ -22,7 +22,7 @@ int main()
     cin >> g;
     for (int j=0; j<g;j++){
         int k;
-        cout << "Jei norite, kad sio studento pazymiai butu generuojami atsitiktinai, iveskite 1: ";
+        cout << "Jei norite, kad sio studento pazymiai butu generuojami atsitiktinai, iveskite 1, jei ne - 2: ";
         cin >> k;
         if (k==1){
             atsitiktiniai(laikinas);
@@ -31,7 +31,7 @@ int main()
             grupe.push_back(laikinas);
             laikinas.paz.clear();
         }
-        else{
+        else if (k==2){
             ivedimas(laikinas);
             galutinis_vid(laikinas);
             galutinis_med(laikinas);
