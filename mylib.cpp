@@ -105,9 +105,9 @@ void rusiavimas(vector<studentas> &Temp){
         {
             if (Temp.at(j).var>Temp.at(i).var)
             {
-                string ct=Temp.at(i).var;
-                Temp.at(i).var=Temp.at(j).var;
-                Temp.at(j).var=ct;
+                studentas ct=Temp[i];
+                Temp[i]=Temp[j];
+                Temp[j]=ct;
             }
         }
      }
