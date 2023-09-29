@@ -60,10 +60,10 @@ void atsitiktiniai(studentas &Temp){
     Temp.egz=1 + (rand() % 10);
 }
 
-unsigned int zodziai(std::string const& str)
+unsigned int zodziai(string const& str)
 {
     std::stringstream stream(str);
-    return std::distance(std::istream_iterator<std::string>(stream), std::istream_iterator<std::string>());
+    return std::distance(std::istream_iterator<string>(stream), std::istream_iterator<string>());
 }
 void skaitymas (vector<studentas> &Temp, int nd){
         int temp;
