@@ -1,29 +1,37 @@
 #include "mylib.h"
-
+#include "exceptions.cpp"
 
 int main()
 {
     studentas laikinas;
     vector<studentas> grupe;
     int l;
-    cout << "Jei norite, kad duomenys butu nuskaitomi is failo, iveskite 2, jei ne, iveskite 1: ";
-    cin >> l;
-    if (l==2){
+    cout << "Jei norite, kad duomenys butu nuskaitomi is failo, iveskite 1, jei norite ivesti ranka, iveskite 0: ";
+    iv_ir_tikr(l);
+    l = ar_tinkamas_pasirinkimas(l);
+    if (l==1){
             int nd;
             skaitymas(grupe,nd);
             rusiavimas(grupe);
             for(auto &a: grupe){galutinis_vid(a);
             galutinis_med(a);}
-            isvedimas_sufailu(grupe);
+            int h;
+            cout << "Jei norite, kad duomenys butu isvedami i faila, iveskite 1, jei i konsoles langa, iveskite 0: ";
+            iv_ir_tikr(h);
+            h = ar_tinkamas_pasirinkimas(h);
+            if (h==1){isvedimas_i_faila(grupe);}
+            else{isvedimas_sufailu(grupe);}
             }
-    else if (l==1) {
+    else{
     int g;
     cout << "Iveskite, kiek studentu: ";
-    cin >> g;
+    iv_ir_tikr(g);
+    g = ar_daugiau0(g);
     for (int j=0; j<g;j++){
         int k;
-        cout << "Jei norite, kad sio studento pazymiai butu generuojami atsitiktinai, iveskite 1, jei ne - 2: ";
-        cin >> k;
+        cout << "Jei norite, kad sio studento pazymiai butu generuojami atsitiktinai, iveskite 1, jei norite irasyti pats iveskite 0: ";
+        iv_ir_tikr(k);
+        k = ar_tinkamas_pasirinkimas(k);
         if (k==1){
             atsitiktiniai(laikinas);
             galutinis_vid(laikinas);
@@ -31,18 +39,18 @@ int main()
             grupe.push_back(laikinas);
             laikinas.paz.clear();
         }
-        else if (k==2){
+        else{
             ivedimas(laikinas);
             galutinis_vid(laikinas);
             galutinis_med(laikinas);
             grupe.push_back(laikinas);
-            laikinas.paz.clear();
-        }
-    }
+            laikinas.paz.clear();}
+            }
 
     int n;
-    cout << "Jeigu norite galutinio pazymio su vidurkiu iveskite 1, jei su mediana - 2: ";
-    cin >> n;
+    cout << "Jeigu norite galutinio pazymio su vidurkiu iveskite 1, jei su mediana - 0: ";
+    iv_ir_tikr(n);
+    n = ar_tinkamas_pasirinkimas(n);
     if (n == 1){
         printf("%-15s%-15s%-16s\n", "Vardas", "Pavarde", "Galutinis (Vid.)");
         printf("----------------------------------------------\n");
@@ -51,7 +59,7 @@ int main()
             isvedimas(a,a.rez_vid);
         }
     }
-    else if (n == 2){
+    else{
         printf("%-15s%-15s%-16s\n", "Vardas", "Pavarde", "Galutinis (Med.)");
         printf("----------------------------------------------\n");
         for (auto &a: grupe)

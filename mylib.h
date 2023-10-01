@@ -46,4 +46,10 @@ void readmix(string failas);
 void skaitymas (vector<studentas> &Temp, int nd);
 void rusiavimas(vector<studentas> &Temp);
 void isvedimas_sufailu(vector<studentas> &Temp);
+void iv_ir_tikr(auto &a);
+int ar_tinkamas_paz(int a);
+int ar_tinkamas_pasirinkimas(int a);
+int ar_daugiau0(int a);
+void isvedimas_i_faila(vector <studentas> &Temp);
+
 #endif // MYLIB_H_INCLUDED
