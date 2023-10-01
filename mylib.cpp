@@ -57,6 +57,10 @@ int ar_daugiau0(int a){
         }} while(a>0==false);
         return a;
 }
+bool compareElement(studentas &Temp1, studentas &Temp2)
+{
+    return (Temp1.var < Temp2.var);
+}
 
 void ivedimas(studentas &Temp){
     cout << "Iveskite varda ir pavarde: ";
@@ -125,7 +129,7 @@ void skaitymas (vector<studentas> &Temp, int nd){
         ifstream fr;
         try
         {
-            fr.open("studentai10000.txt");
+            fr.open("studentai1000000.txt");
             if(!fr)
                 throw std::runtime_error("FAILAS NERASTAS!");
                 getline(fr >> std::ws, buff);
@@ -152,19 +156,7 @@ void skaitymas (vector<studentas> &Temp, int nd){
     }
     catch(...){}
 }
-void rusiavimas(vector<studentas> &Temp){
-     for(int j=0;j<Temp.size();j++){
-        for (int i=j+1;i<Temp.size();i++)
-        {
-            if (Temp.at(j).var>Temp.at(i).var)
-            {
-                studentas ct=Temp.at(i);
-                Temp.at(i)=Temp.at(j);
-                Temp.at(j)=ct;
-            }
-        }
-     }
-}
+
 void isvedimas_sufailu(vector<studentas> &Temp){
     printf("%-15s%-15s%-17s%-17s\n", "Vardas", "Pavarde", "Galutinis (Vid.)","Galutinis (Med.)");
     printf("----------------------------------------------------------------\n");

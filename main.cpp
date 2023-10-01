@@ -1,5 +1,4 @@
 #include "mylib.h"
-#include "exceptions.cpp"
 
 int main()
 {
@@ -12,9 +11,8 @@ int main()
     if (l==1){
             int nd;
             skaitymas(grupe,nd);
-            rusiavimas(grupe);
-            for(auto &a: grupe){galutinis_vid(a);
-            galutinis_med(a);}
+            sort(grupe.begin(),grupe.end(),compareElement);
+            for(auto &a: grupe){galutinis_vid(a);galutinis_med(a);}
             int h;
             cout << "Jei norite, kad duomenys butu isvedami i faila, iveskite 1, jei i konsoles langa, iveskite 0: ";
             iv_ir_tikr(h);
