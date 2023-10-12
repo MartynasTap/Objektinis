@@ -90,6 +90,7 @@ int main()
             auto start_viso = std::chrono::high_resolution_clock::now();
             auto start = std::chrono::high_resolution_clock::now();
             skaitymas(grupe,nd,"stud1000.txt");
+            grupe.shrink_to_fit();
             std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now()-start;
             cout << "Duomenu nuskaitymas is 1000 irasu failo uztruko: "<< diff.count() << endl;
             start = std::chrono::high_resolution_clock::now();
@@ -121,6 +122,7 @@ int main()
             start_viso = std::chrono::high_resolution_clock::now();
             start = std::chrono::high_resolution_clock::now();
             skaitymas(grupe,nd,"stud10000.txt");
+            grupe.shrink_to_fit();
             diff = std::chrono::high_resolution_clock::now()-start;
             cout << "Duomenu nuskaitymas is 10000 eiluciu failo uztruko: "<< diff.count() << endl;
             start = std::chrono::high_resolution_clock::now();
@@ -152,6 +154,7 @@ int main()
             start_viso = std::chrono::high_resolution_clock::now();
             start = std::chrono::high_resolution_clock::now();
             skaitymas(grupe,nd,"stud100000.txt");
+            grupe.shrink_to_fit();
             diff = std::chrono::high_resolution_clock::now()-start;
             cout << "Duomenu nuskaitymas is 100000 eiluciu failo uztruko: "<< diff.count() << endl;
             start = std::chrono::high_resolution_clock::now();
@@ -183,6 +186,7 @@ int main()
             start_viso = std::chrono::high_resolution_clock::now();
             start = std::chrono::high_resolution_clock::now();
             skaitymas(grupe,nd,"stud1000000.txt");
+            grupe.shrink_to_fit();
             diff = std::chrono::high_resolution_clock::now()-start;
             cout << "Duomenu nuskaitymas is 1000000 eiluciu failo uztruko: "<< diff.count() << endl;
             start = std::chrono::high_resolution_clock::now();
@@ -214,7 +218,10 @@ int main()
             start_viso = std::chrono::high_resolution_clock::now();
             start = std::chrono::high_resolution_clock::now();
             grupe.reserve(10000000);
+            vargsiukai.reserve(6000000);
+            kietekai.reserve(6000000);
             skaitymas(grupe,nd,"stud10000000.txt");
+            grupe.shrink_to_fit();
             cout << grupe.size() << " " << grupe.capacity() << endl;
             diff = std::chrono::high_resolution_clock::now()-start;
             cout << "Duomenu nuskaitymas is 10000000 eiluciu failo uztruko: "<< diff.count() << endl;

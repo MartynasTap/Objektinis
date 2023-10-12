@@ -205,8 +205,10 @@ void generavimas(int n, int p, string failas){
 void rusiavimas(vector <studentas> &Prad,vector <studentas> &vargsiukai,vector <studentas> &kietekai){
     for(auto &a: Prad){
         if(a.rez_vid<5){vargsiukai.push_back(a);}
-        if(a.rez_vid>=5){kietekai.push_back(a);}
+        else {kietekai.push_back(a);}
     }
+    cout << vargsiukai.size() << " " << kietekai.size() << " " << Prad.size() << endl;
+    cout << vargsiukai.capacity() << " " << kietekai.capacity() << " " << Prad.capacity() << endl;
     vargsiukai.shrink_to_fit();
     kietekai.shrink_to_fit();
     Prad.clear();
