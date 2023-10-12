@@ -218,8 +218,8 @@ int main()
             start_viso = std::chrono::high_resolution_clock::now();
             start = std::chrono::high_resolution_clock::now();
             grupe.reserve(10000000);
-            vargsiukai.reserve(6000000);
-            kietekai.reserve(6000000);
+            vargsiukai.reserve(10000000);
+            kietekai.reserve(10000000);
             skaitymas(grupe,nd,"stud10000000.txt");
             grupe.shrink_to_fit();
             cout << grupe.size() << " " << grupe.capacity() << endl;
