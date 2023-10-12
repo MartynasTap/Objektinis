@@ -168,13 +168,34 @@ int main()
             cout << "100000 irasu testo visa trukme "<< diff_viso.count() << " s\n";
             cout << endl;
 
-            /*skaitymas(grupe,nd,"stud1000000.txt");
+            start_viso = std::chrono::high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
+            skaitymas(grupe,nd,"stud1000000.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Duomenu nuskaitymas is 1000000 eiluciu failo uztruko: "<< diff.count() << " s\n";
+            start = std::chrono::high_resolution_clock::now();
+            sort(grupe.begin(),grupe.end(),compareElement);
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "1000000 irasu rusiavimas pagal varda uztruko: "<< diff.count() << " s\n";
             for(auto &a: grupe){galutinis_vid(a);galutinis_med(a);}
+            start = std::chrono::high_resolution_clock::now();
             rusiavimas(grupe,vargsiukai,kietekai);
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "1000000 eiluciu dalijimas i dvi grupes uztruko: "<< diff.count() << " s\n";
+            start = std::chrono::high_resolution_clock::now();
             isvedimas_i_faila(vargsiukai,"rez_stud1000000_vargsiukai.txt");
-            isvedimas_i_faila(vargsiukai,"rez_stud1000000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "1000000 irasu vargsiukai irasymas i faila uztruko: "<< diff.count() << " s\n";
+            start = std::chrono::high_resolution_clock::now();
+            isvedimas_i_faila(kietekai,"rez_stud1000000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "1000000 irasu kietekai irasymas i faila uztruko: "<< diff.count() << " s\n";
+            cout << endl;
+            diff_viso = std::chrono::high_resolution_clock::now()-start_viso;
+            cout << "1000000 irasu testo visa trukme "<< diff_viso.count() << " s\n";
+            cout << endl;
 
-            skaitymas(grupe,nd,"stud10000000.txt");
+            /*skaitymas(grupe,nd,"stud10000000.txt");
             for(auto &a: grupe){galutinis_vid(a);galutinis_med(a);}
             rusiavimas(grupe,vargsiukai,kietekai);
             isvedimas_i_faila(vargsiukai,"rez_stud10000000_vargsiukai.txt");
