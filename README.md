@@ -46,5 +46,11 @@ Duomenu nuskaitymas is 10000000 eiluciu failo uztruko: (26.5271 + 33.719 + 25.60
 
 Papildyta kuriamu duomenu failu greicio analize:
 
+Failo kurimas su 1000 irasu failo uztruko: 0.085811
+Failo kurimas su 10000 irasu failo uztruko: 0.349229
+Failo kurimas su 100000 irasu failo uztruko: 3.28032
+Failo kurimas su 1000000 irasu failo uztruko: 72.0516
+Failo kurimas su 10000000 irasu failo uztruko: 304.045
+
 
 
