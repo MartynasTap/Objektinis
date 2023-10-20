@@ -44,3 +44,7 @@ Duomenu nuskaitymas is 10000000 eiluciu failo uztruko: (26.5271 + 33.719 + 25.60
 
 10000000 irasu testo visa trukme (118.218 + 143.478 + 117.71)/3= 126.468666
 
+Papildyta kuriamu duomenu failu greicio analize:
+
+
+
