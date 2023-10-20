@@ -215,11 +215,13 @@ void generavimas(int n, int p, string failas) {
         var += std::to_string(i);
         pav += std::to_string(i);
         fr << setw(15) << left << var << setw(15) << left << pav;
+        std::mt19937 mt(1729);
+        std::uniform_int_distribution<int> dist(1, 10);
         for (int j = 1; j <= p; j++) {
-            int h = 1 + (rand() % 10);
+            int h = dist(mt);
             fr << setw(10) << left << h;
         }
-        int e = 1 + (rand() % 10);
+        int e = dist(mt);
         fr << setw(10) << left << e << endl;
     }
 }

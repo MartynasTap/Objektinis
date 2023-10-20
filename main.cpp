@@ -79,11 +79,26 @@ int main()
         d = ar_tinkamas_pasirinkimas(d);
         cout << endl;
         if (d == 1) {
-            generavimas(1000, 5, "stud1000.txt");
-            generavimas(10000, 5, "stud10000.txt");
-            generavimas(100000, 5, "stud100000.txt");
-            generavimas(1000000, 5, "stud1000000.txt");
-            generavimas(10000000, 5, "stud10000000.txt");
+            auto start = std::chrono::high_resolution_clock::now();
+            generavimas(1000,5,"stud1000.txt");
+            std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Failo kurimas su 1000 irasu failo uztruko: "<< diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(10000,5,"stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Failo kurimas su 10000 irasu failo uztruko: "<< diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(100000,5,"stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Failo kurimas su 100000 irasu failo uztruko: "<< diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(1000000,5,"stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Failo kurimas su 1000000 irasu failo uztruko: "<< diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(10000000,5,"stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now()-start;
+            cout << "Failo kurimas su 10000000 irasu failo uztruko: "<< diff.count() << endl;
         }
         if (d == 0) {
             vector<studentas> vargsiukai;
