@@ -4,9 +4,9 @@ Programa papildyta galimybe naudoti std::list vietoj std::vector studentu duomen
 Naudotos testavimo sistemos parametrai: 
 CPU - Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz   1.19 GHz
 RAM - 8.00 GB
---------------------------------------------------
-|    Operacija  |   List        |     Vector     |
-| ------------- | ------------- |-----------------
+---
+| Operacija|List|Vector|
+|---|---|---|
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
