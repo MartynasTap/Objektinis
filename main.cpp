@@ -14,7 +14,7 @@ int main()
     cout << "Jei norite automatinio failu generavimo, dvieju grupiu surusiavimo ir laiko matavimo iveskite 1. Jei ne, iveskite 0: ";
     iv_ir_tikr(k);
     k = ar_tinkamas_pasirinkimas(k);
-    if (k == 0 && u ==1) //ivedimas ranka su vektorium
+    if (k == 0 && u ==1) //rankinis darbas su vektorium
     {
         cout << "Jei norite, kad duomenys butu nuskaitomi is failo, iveskite 1, jei norite ivesti ranka, iveskite 0: ";
         iv_ir_tikr(l);
@@ -79,7 +79,7 @@ int main()
             }
         }
     }
-    if (k == 1 && u==1) //automatinis darbas su failas su vektorium
+    if (k == 1 && u==1) //automatinis darbas su failais ir vektorium
     {
         int d;
         cout << "Jei tikrai reikia sugeneruoti visus naujus duomenu failus, iveskite 1. Jei ne, iveskite 0: ";
@@ -286,7 +286,7 @@ int main()
             cout << endl;
         }
     }
-    if (k == 0 && u == 0) //ivedimas ranka su list
+    if (k == 0 && u == 0) //rankinis darbas su list
     {
         cout << "Jei norite, kad duomenys butu nuskaitomi is failo, iveskite 1, jei norite ivesti ranka, iveskite 0: ";
         iv_ir_tikr(l);
@@ -356,6 +356,197 @@ int main()
         }
 
 
+    }
+    if (k == 1 && u == 0) //automatinis darbas su list
+    {
+        int d;
+        cout << "Jei tikrai reikia sugeneruoti visus naujus duomenu failus, iveskite 1. Jei ne, iveskite 0: ";
+        iv_ir_tikr(d);
+        d = ar_tinkamas_pasirinkimas(d);
+        cout << endl;
+        if (d == 1) {
+            auto start = std::chrono::high_resolution_clock::now();
+            generavimas(1000, 5, "stud1000.txt");
+            std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Failo kurimas su 1000 irasu failo uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(10000, 5, "stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Failo kurimas su 10000 irasu failo uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(100000, 5, "stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Failo kurimas su 100000 irasu failo uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(1000000, 5, "stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Failo kurimas su 1000000 irasu failo uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            generavimas(10000000, 5, "stud1000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Failo kurimas su 10000000 irasu failo uztruko: " << diff.count() << endl;
+        }
+        if (d == 0) {
+            list<studentasL> vargsiukai;
+            list<studentasL> kietekai;
+            int nd = 0;
+
+            auto start_viso = std::chrono::high_resolution_clock::now();
+            auto start = std::chrono::high_resolution_clock::now();
+            skaitymasL(grupeL, nd, "stud1000.txt");
+            std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Duomenu nuskaitymas is 1000 irasu failo uztruko: " << diff.count() << endl;
+            for (auto it = grupeL.begin(); it != grupeL.end(); ++it){galutinis_vidL(*it);galutinis_medL(*it);}
+            start = std::chrono::high_resolution_clock::now();
+            grupeL.sort(compareGalutL);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000 irasu rusiavimas didejimo tvarka uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            rusiavimasL(grupeL, vargsiukai, kietekai);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000 irasu dalijimas i dvi grupes uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            vargsiukai.sort(compareElementL);
+            isvedimas_i_failaL(vargsiukai, "rez_stud1000_vargsiukai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000 irasu vargsiukai irasymas i faila uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            kietekai.sort(compareElementL);
+            isvedimas_i_failaL(kietekai, "rez_stud1000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
+            cout << endl;
+            std::chrono::duration<double> diff_viso = std::chrono::high_resolution_clock::now() - start_viso;
+            cout << "1000 irasu testo visa trukme: " << diff_viso.count() << endl;
+            kietekai.clear();
+            vargsiukai.clear();
+            cout << endl;
+
+            start_viso = std::chrono::high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
+            skaitymasL(grupeL, nd, "stud10000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Duomenu nuskaitymas is 10000 eiluciu failo uztruko: " << diff.count() << endl;
+            for (auto it = grupeL.begin(); it != grupeL.end(); ++it) { galutinis_vidL(*it); galutinis_medL(*it); }
+            start = std::chrono::high_resolution_clock::now();
+            grupeL.sort(compareGalutL);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000 irasu rusiavimas didejimo tvarka uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            rusiavimasL(grupeL, vargsiukai, kietekai);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000 eiluciu dalijimas i dvi grupes uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            vargsiukai.sort(compareElementL);
+            isvedimas_i_failaL(vargsiukai, "rez_stud10000_vargsiukai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000 irasu vargsiukai irasymas i faila uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            kietekai.sort(compareElementL);
+            isvedimas_i_failaL(kietekai, "rez_stud10000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
+            cout << endl;
+            diff_viso = std::chrono::high_resolution_clock::now() - start_viso;
+            cout << "10000 irasu testo visa trukme " << diff_viso.count() << endl;
+            kietekai.clear();
+            vargsiukai.clear();
+            cout << endl;
+
+            start_viso = std::chrono::high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
+            skaitymasL(grupeL, nd, "stud100000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Duomenu nuskaitymas is 100000 eiluciu failo uztruko: " << diff.count() << endl;
+            for (auto it = grupeL.begin(); it != grupeL.end(); ++it) { galutinis_vidL(*it); galutinis_medL(*it); }
+            start = std::chrono::high_resolution_clock::now();
+            grupeL.sort(compareGalutL);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "100000 irasu rusiavimas didejimo tvarka uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            rusiavimasL(grupeL, vargsiukai, kietekai);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "100000 eiluciu dalijimas i dvi grupes uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            vargsiukai.sort(compareElementL);
+            isvedimas_i_failaL(vargsiukai, "rez_stud100000_vargsiukai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "100000 irasu vargsiukai irasymas i faila uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            kietekai.sort(compareElementL);
+            isvedimas_i_failaL(kietekai, "rez_stud100000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "100000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
+            cout << endl;
+            diff_viso = std::chrono::high_resolution_clock::now() - start_viso;
+            cout << "100000 irasu testo visa trukme " << diff_viso.count() << endl;
+            kietekai.clear();
+            vargsiukai.clear();
+            cout << endl;
+
+            start_viso = std::chrono::high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
+            skaitymasL(grupeL, nd, "stud1000000.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Duomenu nuskaitymas is 1000000 eiluciu failo uztruko: " << diff.count() << endl;
+            for (auto it = grupeL.begin(); it != grupeL.end(); ++it) { galutinis_vidL(*it); galutinis_medL(*it); }
+            start = std::chrono::high_resolution_clock::now();
+            grupeL.sort(compareGalutL);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000000 irasu rusiavimas didejimo tvarka uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            rusiavimasL(grupeL, vargsiukai, kietekai);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000000 eiluciu dalijimas i dvi grupes uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            vargsiukai.sort(compareElementL);
+            isvedimas_i_failaL(vargsiukai, "rez_stud1000000_vargsiukai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000000 irasu vargsiukai irasymas i faila uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            kietekai.sort(compareElementL);
+            isvedimas_i_failaL(kietekai, "rez_stud1000000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "1000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
+            cout << endl;
+            diff_viso = std::chrono::high_resolution_clock::now() - start_viso;
+            cout << "1000000 irasu testo visa trukme " << diff_viso.count() << endl;
+            kietekai.clear();
+            vargsiukai.clear();
+            cout << endl;
+
+            start_viso = std::chrono::high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
+            skaitymasL(grupeL, nd, "stud10000000.txt");
+            cout << "Po skaitymo " << grupe.capacity() << " " << grupe.size() << endl;
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "Duomenu nuskaitymas is 10000000 eiluciu failo uztruko: " << diff.count() << endl;
+            for (auto it = grupeL.begin(); it != grupeL.end(); ++it) { galutinis_vidL(*it); galutinis_medL(*it); }
+            start = std::chrono::high_resolution_clock::now();
+            grupeL.sort(compareGalutL);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000000 irasu rusiavimas didejimo tvarka uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            rusiavimasL(grupeL, vargsiukai, kietekai);
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000000 eiluciu dalijimas i dvi grupes uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            vargsiukai.sort(compareElementL);
+            isvedimas_i_failaL(vargsiukai, "rez_stud10000000_vargsiukai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000000 irasu vargsiukai irasymas i faila uztruko: " << diff.count() << endl;
+            start = std::chrono::high_resolution_clock::now();
+            kietekai.sort(compareElementL);
+            isvedimas_i_failaL(kietekai, "rez_stud10000000_kietekai.txt");
+            diff = std::chrono::high_resolution_clock::now() - start;
+            cout << "10000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
+            cout << endl;
+            diff_viso = std::chrono::high_resolution_clock::now() - start_viso;
+            cout << "10000000 irasu testo visa trukme " << diff_viso.count() << endl;
+            kietekai.clear();
+            vargsiukai.clear();
+            cout << endl;
+        }
     }
     return 0;
 }

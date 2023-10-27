@@ -71,6 +71,7 @@ bool compareGalut(studentas& Temp1, studentas& Temp2);
 //funkcijos listam
 void skaitymasL(list<studentasL>& Temp, int nd, string failas); 
 bool compareElementL(studentasL& Temp1, studentasL& Temp2);
+bool compareGalutL(studentasL& Temp1, studentasL& Temp2);
 void galutinis_vidL(studentasL& Temp);
 void galutinis_medL(studentasL& Temp);
 void isvedimas_sufailuL(list<studentasL>& Temp);
@@ -78,4 +79,5 @@ void isvedimas_i_failaL(list<studentasL>& Temp, string failas);
 void atsitiktiniaiL(studentasL& Temp);
 void ivedimasL(studentasL& Temp);
 void isvedimasL(studentasL& Temp, float galutinis);
+void rusiavimasL(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai);
 #endif // MYLIB_H_INCLUDED

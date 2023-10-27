@@ -280,6 +280,10 @@ bool compareElementL(studentasL& Temp1, studentasL& Temp2) {
     if (Temp1.var < Temp2.var) { return 1; }
     else { return 0; }
 }
+bool compareGalutL(studentasL& Temp1, studentasL& Temp2) {
+    if (Temp1.rez_vid < Temp2.rez_vid) { return 1; }
+    else { return 0; }
+}
 
 void galutinis_vidL(studentasL& Temp) {
     float k = 0, j = 0;
@@ -370,4 +374,16 @@ void ivedimasL(studentasL& Temp) {
 void isvedimasL(studentasL& Temp, float galutinis) {
     cout << setw(15) << left << Temp.var << setw(15) << left << Temp.pav;
     printf("%-16.2f%-16s\n", galutinis,&Temp);
+}
+void rusiavimasL(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai) {
+    auto i=Prad.begin();
+    for (auto it = Prad.begin(); it != Prad.end(); ++it)
+    {
+        if ((*it).rez_vid >= 5) { break; }
+        else { vargsiukai.push_back(*it); }
+        i++;
+    }
+    Prad.erase(Prad.begin(), i);
+    kietekai = Prad;
+    Prad.clear();
 }
