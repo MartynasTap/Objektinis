@@ -222,7 +222,7 @@ void generavimas(int n, int p, string failas) {
         fr << setw(10) << left << e << endl;
     }
 }
-void rusiavimas(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector <studentas>& kietekai) {
+void rusiavimas(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
     int i = 0;
     do {
         i++;
@@ -233,9 +233,6 @@ void rusiavimas(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector
         vargsiukai.push_back(Prad[i]);
     }
     Prad.erase(Prad.begin(), Prad.begin() + i);
-    Prad.shrink_to_fit();
-    kietekai = Prad;
-    Prad.clear();
     Prad.shrink_to_fit();
 }
 
@@ -269,6 +266,7 @@ void skaitymasL(list<studentasL>& Temp, int nd, string failas) {
             }
             fr >> studObj.egz;
             Temp.push_back(studObj);
+            studObj.paz.clear();
 
         }
         fr.close();
@@ -375,7 +373,7 @@ void isvedimasL(studentasL& Temp, float galutinis) {
     cout << setw(15) << left << Temp.var << setw(15) << left << Temp.pav;
     printf("%-16.2f%-16s\n", galutinis,&Temp);
 }
-void rusiavimasL(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai) {
+void rusiavimasL(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
     auto i=Prad.begin();
     for (auto it = Prad.begin(); it != Prad.end(); ++it)
     {
@@ -383,7 +381,6 @@ void rusiavimasL(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <s
         else { vargsiukai.push_back(*it); }
         i++;
     }
+    cout << "iki cia atejom" << endl;
     Prad.erase(Prad.begin(), i);
-    kietekai = Prad;
-    Prad.clear();
 }
