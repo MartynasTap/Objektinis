@@ -1,1 +1,3 @@
-@v1.0
+Programos galutinė versija v1.0
+Praeiti releasai:
+
