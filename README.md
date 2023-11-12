@@ -16,8 +16,12 @@ Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @
 |Duomenu kiekis|	List	|Vector|
 ---
 |1000	|0.0879302 s	|0.0425344 s|
+---
 |10000	|0.172178 s	|0.161486 s|
+---
 |100000	|1.59597 s	|1.37253 s|
+---
 |1000000	|18.3753 s	|15.5712 s|
+---
 |10000000	|210.203 s	|154.854 s|
 ---
