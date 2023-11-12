@@ -19,3 +19,16 @@ Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @
 |100000	|1.59597 s	|1.37253 s|
 |1000000	|18.3753 s	|15.5712 s|
 |10000000	|210.203 s	|154.854 s|
+
+## v1.0
+Programos veikimo spartos analizei isbandytos 3 duomenu rusiavimo i dvi grupes strategijos. 1 - skaidymas i dvi grupes paliekant pradinius duomenis grupe konteineryje. 2 - perkelimas studento duomenu i vargsiuku konteineri ji iskart panaikinant is pradines. 3 - 2 strategija pridejus remove_if() ir list.remove_if() duomenu salinimui is pradinio konteinerio.
+
+Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @ 1.20GHz, 1498Mhz; RAM - 8.00 GB HDD - 236 GB;
+|Duomenu kiekis|	1 strategija List	| 1 strategija Vector|	2 strategija List	| 2 strategija Vector|	3 strategija List	| 3 strategija Vector|
+|---|---|---|---|---|---|---|
+|1000|
+|10000|
+|100000|
+|1000000|
+|10000000|
+
