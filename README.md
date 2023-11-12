@@ -12,16 +12,10 @@ Programos v0.2 versija. Pridėta galimybė automatiškai sugeneruoti duomenų fa
 Programa papildyta galimybe naudoti std::list vietoj std::vector studentu duomenim. Taip pat papildyta isvedimu adreso, kur atmintyje yra saugomas studento objektas (rankinio ivedimo atvejui).
 
 Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @ 1.20GHz, 1498Mhz; RAM - 8.00 GB HDD - 236 GB;
----
 |Duomenu kiekis|	List	|Vector|
----
+|---|---|---|
 |1000	|0.0879302 s	|0.0425344 s|
----
 |10000	|0.172178 s	|0.161486 s|
----
 |100000	|1.59597 s	|1.37253 s|
----
 |1000000	|18.3753 s	|15.5712 s|
----
 |10000000	|210.203 s	|154.854 s|
----
