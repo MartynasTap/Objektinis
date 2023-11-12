@@ -8,3 +8,13 @@ Pradine programos versija, kuri buvo pildoma is siu daliniu versiju: v.pradine.v
 ## v0.2
 Programos v0.2 versija. Pridėta galimybė automatiškai sugeneruoti duomenų failus, studentų sarašas padalijmas į dvi grupes prieš išvedant į failus. Taip pat įdėtos laiko matavimo funkcijos tirti kiek užtrunka šios programos veiksmai: skaitymas iš failo, rušiavimas pagal vardus, skirstymas į dvi grupes, vienos grupės išvedimas į faila, antros grupės išvedimas į failą. Tai veikia su 1000, 10000, 100000,1000000 ir 10000000 įrašų failais. Programos veikimo laikai matomi v0.2 release readme faile.
 
+## v0.3
+Programa papildyta galimybe naudoti std::list vietoj std::vector studentu duomenim. Taip pat papildyta isvedimu adreso, kur atmintyje yra saugomas studento objektas (rankinio ivedimo atvejui).
+
+Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @ 1.20GHz, 1498Mhz; RAM - 8.00 GB HDD - 236 GB;
+Duomenu kiekis	List	Vector
+1000	0.0879302 s	0.0425344 s
+10000	0.172178 s	0.161486 s
+100000	1.59597 s	1.37253 s
+1000000	18.3753 s	15.5712 s
+10000000	210.203 s	154.854 s
