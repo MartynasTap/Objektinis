@@ -66,7 +66,9 @@ int ar_daugiau0(int a);
 void isvedimas_i_faila(vector <studentas>& Temp, string failas);
 bool compareElement(studentas& Temp1, studentas& Temp2);
 void generavimas(int n, int p, string failas);
-void rusiavimas(vector <studentas>& Prad, vector <studentas>& vargsiukai);
+void rusiavimas1(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector <studentas>& kietekai);
+void rusiavimas2(vector <studentas>& Prad, vector <studentas>& vargsiukai);
+void rusiavimas3(vector <studentas>& Prad, vector <studentas>& vargsiukai);
 bool compareGalut(studentas& Temp1, studentas& Temp2);
 
 //funkcijos listam

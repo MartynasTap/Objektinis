@@ -238,7 +238,26 @@ void generavimas(int n, int p, string failas) {
         fr << setw(10) << left << e << endl;
     }
 }
-void rusiavimas(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
+void rusiavimas1(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector <studentas>& kietekai) {
+    for (int i = 0; i < Prad.size(); i++)
+    {
+        if (Prad.at(i).rez_vid <= 5) { kietekai.push_back(Prad.at(i)); }
+        else { vargsiukai.push_back(Prad.at(i)); }
+        i++;
+    }
+    vargsiukai.shrink_to_fit();
+    kietekai.shrink_to_fit();
+    kietekai.shrink_to_fit();
+}
+void rusiavimas2(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
+    auto it = Prad.begin();
+    while (it != Prad.end()){
+        vargsiukai.push_back(*it);
+        it = Prad.erase(it);
+    }
+    Prad.shrink_to_fit();
+}
+void rusiavimas3(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
     int i = 0;
     do {
         i++;
@@ -390,29 +409,20 @@ void isvedimasL(studentasL& Temp, float galutinis) {
     printf("%-16.2f%-16s\n", galutinis,&Temp);
 }
 void rusiavimasL1(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai) {
-    auto i=Prad.begin();
     for (auto it = Prad.begin(); it != Prad.end(); ++it)
     {
-        if ((*it).rez_vid >= 5) { break;}
+        if ((*it).rez_vid >= 5) { kietekai.push_back(*it); }
         else { vargsiukai.push_back(*it); }
-        i++;
     }
-    for (auto it = i; it != Prad.end(); ++it)
-    {
-        if ((*it).rez_vid <= 5) { break; }
-        else {kietekai.push_back(*it); }
-    }
-    i = Prad.begin();
+    cout << kietekai.size() << " " << vargsiukai.size();
 }
 void rusiavimasL2(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
     auto i = Prad.begin();
-    for (auto it = Prad.begin(); it != Prad.end(); ++it)
+    while (i != Prad.end())
     {
-        if ((*it).rez_vid >= 5) { break; }
-        else { vargsiukai.push_back(*it); }
-        i++;
+        if ((*i).rez_vid >= 5) { break;}
+        else {vargsiukai.push_back(*i); i = Prad.erase(i);}
     }
-    Prad.erase(Prad.begin(), i);
     i = Prad.begin();
 }
 void rusiavimasL3(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
@@ -420,7 +430,7 @@ void rusiavimasL3(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
     for (auto it = Prad.begin(); it != Prad.end(); ++it)
     {
         if ((*it).rez_vid >= 5) { break; }
-        else { vargsiukai.push_back(*it); }
+        else {vargsiukai.push_back(*it); }
         i++;
     }
     Prad.erase(Prad.begin(), i);
