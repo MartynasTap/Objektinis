@@ -33,6 +33,7 @@ using std::ifstream;
 using std::stringstream;
 using std::swap;
 using std::list;
+using std::remove_if;
 
 struct studentas {
     string var, pav;
@@ -61,7 +62,7 @@ void isvedimas_sufailu(vector<studentas>& Temp);
 void iv_ir_tikr(auto& a);
 int ar_tinkamas_paz(int a);
 int ar_tinkamas_pasirinkimas(int a);
-int ar_tinkamas_pasirinkimas3(int a);
+int ar_tinkamas_pasirinkimas4(int a);
 int ar_daugiau0(int a);
 void isvedimas_i_faila(vector <studentas>& Temp, string failas);
 bool compareElement(studentas& Temp1, studentas& Temp2);
@@ -69,7 +70,9 @@ void generavimas(int n, int p, string failas);
 void rusiavimas1(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector <studentas>& kietekai);
 void rusiavimas2(vector <studentas>& Prad, vector <studentas>& vargsiukai);
 void rusiavimas3(vector <studentas>& Prad, vector <studentas>& vargsiukai);
+void rusiavimas4(vector <studentas>& Prad, vector <studentas>& vargsiukai);
 bool compareGalut(studentas& Temp1, studentas& Temp2);
+bool palyg(studentas& Temp);
 
 //funkcijos listam
 void skaitymasL(list<studentasL>& Temp, int nd, string failas); 
@@ -82,8 +85,10 @@ void isvedimas_i_failaL(list<studentasL>& Temp, string failas);
 void atsitiktiniaiL(studentasL& Temp);
 void ivedimasL(studentasL& Temp);
 void isvedimasL(studentasL& Temp, float galutinis);
+bool palygL(studentasL& Temp);
 
 void rusiavimasL1(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai);
 void rusiavimasL2(list <studentasL>& Prad, list <studentasL>& vargsiukai);
 void rusiavimasL3(list <studentasL>& Prad, list <studentasL>& vargsiukai);
+void rusiavimasL4(list <studentasL>& Prad, list <studentasL>& vargsiukai);
 #endif // MYLIB_H_INCLUDED

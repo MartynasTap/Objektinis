@@ -113,9 +113,9 @@ int main()
             vector<studentas> kietekai;
             int nd = 0;
             int y;
-            cout << "Kuria veikimo strategija norite isbandyti: 1, 2 arba 3: ";
+            cout << "Kuria veikimo strategija norite isbandyti: 1, 2, 3 arba 4: ";
             iv_ir_tikr(y);
-            y = ar_tinkamas_pasirinkimas3(y);
+            y = ar_tinkamas_pasirinkimas4(y);
             cout << endl;
             auto start_viso = std::chrono::high_resolution_clock::now();
             auto start = std::chrono::high_resolution_clock::now();
@@ -146,6 +146,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimas4(grupe, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "1000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             sort(vargsiukai.begin(), vargsiukai.end(), compareElement);
             isvedimas_i_faila(vargsiukai, "rez_stud1000_vargsiukai.txt");
@@ -155,15 +161,15 @@ int main()
             if (y == 1) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(kietekai.begin(), kietekai.end(), compareElement);
-                isvedimas_i_faila(kietekai, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(kietekai, "rez_stud1000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(grupe.begin(), grupe.end(), compareElement);
-                isvedimas_i_faila(grupe, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(grupe, "rez_stud1000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
@@ -174,6 +180,8 @@ int main()
             grupe.shrink_to_fit();
             vargsiukai.clear();
             vargsiukai.shrink_to_fit();
+            kietekai.clear();
+            kietekai.shrink_to_fit();
             cout << endl;
 
             start_viso = std::chrono::high_resolution_clock::now();
@@ -205,6 +213,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "10000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimas4(grupe, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "10000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             sort(vargsiukai.begin(), vargsiukai.end(), compareElement);
             isvedimas_i_faila(vargsiukai, "rez_stud10000_vargsiukai.txt");
@@ -213,15 +227,15 @@ int main()
             if (y == 1) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(kietekai.begin(), kietekai.end(), compareElement);
-                isvedimas_i_faila(kietekai, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(kietekai, "rez_stud10000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "10000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(grupe.begin(), grupe.end(), compareElement);
-                isvedimas_i_faila(grupe, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(grupe, "rez_stud10000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "10000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
@@ -232,6 +246,8 @@ int main()
             grupe.shrink_to_fit();
             vargsiukai.clear();
             vargsiukai.shrink_to_fit();
+            kietekai.clear();
+            kietekai.shrink_to_fit();
             cout << endl;
 
             start_viso = std::chrono::high_resolution_clock::now();
@@ -263,6 +279,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "100000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimas4(grupe, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "100000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             sort(vargsiukai.begin(), vargsiukai.end(), compareElement);
             isvedimas_i_faila(vargsiukai, "rez_stud100000_vargsiukai.txt");
@@ -271,15 +293,15 @@ int main()
             if (y == 1) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(kietekai.begin(), kietekai.end(), compareElement);
-                isvedimas_i_faila(kietekai, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(kietekai, "rez_stud100000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "100000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(grupe.begin(), grupe.end(), compareElement);
-                isvedimas_i_faila(grupe, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(grupe, "rez_stud100000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "100000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
@@ -290,6 +312,8 @@ int main()
             grupe.shrink_to_fit();
             vargsiukai.clear();
             vargsiukai.shrink_to_fit();
+            kietekai.clear();
+            kietekai.shrink_to_fit();
             cout << endl;
 
             start_viso = std::chrono::high_resolution_clock::now();
@@ -321,6 +345,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimas4(grupe, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "1000000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             sort(vargsiukai.begin(), vargsiukai.end(), compareElement);
             isvedimas_i_faila(vargsiukai, "rez_stud1000000_vargsiukai.txt");
@@ -329,15 +359,15 @@ int main()
             if (y == 1) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(kietekai.begin(), kietekai.end(), compareElement);
-                isvedimas_i_faila(kietekai, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(kietekai, "rez_stud1000000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(grupe.begin(), grupe.end(), compareElement);
-                isvedimas_i_faila(grupe, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_faila(grupe, "rez_stud1000000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
@@ -348,6 +378,8 @@ int main()
             grupe.shrink_to_fit();
             vargsiukai.clear();
             vargsiukai.shrink_to_fit();
+            kietekai.clear();
+            kietekai.shrink_to_fit();
             cout << endl;
 
             start_viso = std::chrono::high_resolution_clock::now();
@@ -381,6 +413,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "10000000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimas4(grupe, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "10000000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             sort(vargsiukai.begin(), vargsiukai.end(), compareElement);
             isvedimas_i_faila(vargsiukai, "rez_stud10000000_vargsiukai.txt");
@@ -394,7 +432,7 @@ int main()
                 cout << "10000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 sort(grupe.begin(), grupe.end(), compareElement);
                 isvedimas_i_faila(grupe, "rez_stud10000000_kietekai.txt");
@@ -408,6 +446,8 @@ int main()
             grupe.shrink_to_fit();
             vargsiukai.clear();
             vargsiukai.shrink_to_fit();
+            kietekai.clear();
+            kietekai.shrink_to_fit();
             cout << endl;
         }
     }
@@ -516,9 +556,9 @@ int main()
             list<studentasL> kietekai;
             int nd = 0;
             int y;
-            cout << "Kuria veikimo strategija norite isbandyti: 1, 2 arba 3: ";
+            cout << "Kuria veikimo strategija norite isbandyti: 1, 2, 3 arba 4: ";
             iv_ir_tikr(y);
-            y = ar_tinkamas_pasirinkimas3(y);
+            y = ar_tinkamas_pasirinkimas4(y);
             cout << endl;
             auto start_viso = std::chrono::high_resolution_clock::now();
             auto start = std::chrono::high_resolution_clock::now();
@@ -548,6 +588,12 @@ int main()
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
             }
+            if (y == 4) {
+                start = std::chrono::high_resolution_clock::now();
+                rusiavimasL4(grupeL, vargsiukai);
+                diff = std::chrono::high_resolution_clock::now() - start;
+                cout << "1000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+            }
             start = std::chrono::high_resolution_clock::now();
             vargsiukai.sort(compareElementL);
             isvedimas_i_failaL(vargsiukai, "rez_stud1000_vargsiukai.txt");
@@ -556,15 +602,15 @@ int main()
             start = std::chrono::high_resolution_clock::now();
             if (y == 1) {
                 start = std::chrono::high_resolution_clock::now();
-                isvedimas_i_failaL(kietekai, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_failaL(kietekai, "rez_stud1000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
             }
-            if (y == 2 || y == 3) {
+            if (y == 2 || y == 3 || y == 4) {
                 start = std::chrono::high_resolution_clock::now();
                 grupeL.sort(compareElementL);
-                isvedimas_i_failaL(grupeL, "rez_stud10000000_kietekai.txt");
+                isvedimas_i_failaL(grupeL, "rez_stud1000_kietekai.txt");
                 diff = std::chrono::high_resolution_clock::now() - start;
                 cout << "1000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                 cout << endl;
@@ -574,6 +620,7 @@ int main()
                 cout << "1000 irasu testo visa trukme: " << diff_viso.count() << endl;
                 grupeL.clear();
                 vargsiukai.clear();
+                kietekai.clear();  
                 cout << endl;
 
                 start_viso = std::chrono::high_resolution_clock::now();
@@ -604,6 +651,12 @@ int main()
                     diff = std::chrono::high_resolution_clock::now() - start;
                     cout << "10000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
                 }
+                if (y == 4) {
+                    start = std::chrono::high_resolution_clock::now();
+                    rusiavimasL4(grupeL, vargsiukai);
+                    diff = std::chrono::high_resolution_clock::now() - start;
+                    cout << "10000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+                }
                 start = std::chrono::high_resolution_clock::now();
                 vargsiukai.sort(compareElementL);
                 isvedimas_i_failaL(vargsiukai, "rez_stud10000_vargsiukai.txt");
@@ -613,15 +666,15 @@ int main()
                 if (y == 1) {
                     start = std::chrono::high_resolution_clock::now();
                     kietekai.sort(compareElementL);
-                    isvedimas_i_failaL(kietekai, "rez_stud10000000_kietekai.txt");
+                    isvedimas_i_failaL(kietekai, "rez_stud10000_kietekai.txt");
                     diff = std::chrono::high_resolution_clock::now() - start;
                     cout << "10000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                     cout << endl;
                 }
-                if (y == 2 || y == 3) {
+                if (y == 2 || y == 3 || y == 4) {
                     start = std::chrono::high_resolution_clock::now();
                     grupeL.sort(compareElementL);
-                    isvedimas_i_failaL(grupeL, "rez_stud10000000_kietekai.txt");
+                    isvedimas_i_failaL(grupeL, "rez_stud10000_kietekai.txt");
                     diff = std::chrono::high_resolution_clock::now() - start;
                     cout << "10000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                     cout << endl;
@@ -631,6 +684,7 @@ int main()
                     cout << "10000 irasu testo visa trukme " << diff_viso.count() << endl;
                     grupeL.clear();
                     vargsiukai.clear();
+                    kietekai.clear();
                     cout << endl;
 
                     start_viso = std::chrono::high_resolution_clock::now();
@@ -661,6 +715,12 @@ int main()
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "100000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
                     }
+                    if (y == 4) {
+                        start = std::chrono::high_resolution_clock::now();
+                        rusiavimasL4(grupeL, vargsiukai);
+                        diff = std::chrono::high_resolution_clock::now() - start;
+                        cout << "100000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+                    }
                     start = std::chrono::high_resolution_clock::now();
                     vargsiukai.sort(compareElementL);
                     isvedimas_i_failaL(vargsiukai, "rez_stud100000_vargsiukai.txt");
@@ -670,15 +730,15 @@ int main()
                     if (y == 1) {
                         start = std::chrono::high_resolution_clock::now();
                         kietekai.sort(compareElementL);
-                        isvedimas_i_failaL(kietekai, "rez_stud10000000_kietekai.txt");
+                        isvedimas_i_failaL(kietekai, "rez_stud100000_kietekai.txt");
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "100000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                         cout << endl;
                     }
-                    if (y == 2 || y == 3) {
+                    if (y == 2 || y == 3 || y == 4) {
                         start = std::chrono::high_resolution_clock::now();
                         grupeL.sort(compareElementL);
-                        isvedimas_i_failaL(grupeL, "rez_stud10000000_kietekai.txt");
+                        isvedimas_i_failaL(grupeL, "rez_stud100000_kietekai.txt");
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "100000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                         cout << endl;
@@ -687,6 +747,7 @@ int main()
                     cout << "100000 irasu testo visa trukme " << diff_viso.count() << endl;
                     grupeL.clear();
                     vargsiukai.clear();
+                    kietekai.clear();
                     cout << endl;
 
                     start_viso = std::chrono::high_resolution_clock::now();
@@ -717,6 +778,12 @@ int main()
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "1000000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
                     }
+                    if (y == 4) {
+                        start = std::chrono::high_resolution_clock::now();
+                        rusiavimasL4(grupeL, vargsiukai);
+                        diff = std::chrono::high_resolution_clock::now() - start;
+                        cout << "1000000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+                    }
                     start = std::chrono::high_resolution_clock::now();
                     vargsiukai.sort(compareElementL);
                     isvedimas_i_failaL(vargsiukai, "rez_stud1000000_vargsiukai.txt");
@@ -725,15 +792,15 @@ int main()
                     if (y == 1) {
                         start = std::chrono::high_resolution_clock::now();
                         kietekai.sort(compareElementL);
-                        isvedimas_i_failaL(kietekai, "rez_stud10000000_kietekai.txt");
+                        isvedimas_i_failaL(kietekai, "rez_stud1000000_kietekai.txt");
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "1000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                         cout << endl;
                     }
-                    if (y == 2 || y == 3) {
+                    if (y == 2 || y == 3 || y == 4) {
                         start = std::chrono::high_resolution_clock::now();
                         grupeL.sort(compareElementL);
-                        isvedimas_i_failaL(grupeL, "rez_stud10000000_kietekai.txt");
+                        isvedimas_i_failaL(grupeL, "rez_stud1000000_kietekai.txt");
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "1000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                         cout << endl;
@@ -742,6 +809,7 @@ int main()
                     cout << "1000000 irasu testo visa trukme " << diff_viso.count() << endl;
                     grupeL.clear();
                     vargsiukai.clear();
+                    kietekai.clear();
                     cout << endl;
 
                     start_viso = std::chrono::high_resolution_clock::now();
@@ -773,6 +841,12 @@ int main()
                         diff = std::chrono::high_resolution_clock::now() - start;
                         cout << "10000000 irasu dalijimas i dvi grupes su trecia strategija uztruko: " << diff.count() << endl;
                     }
+                    if (y == 4) {
+                        start = std::chrono::high_resolution_clock::now();
+                        rusiavimasL4(grupeL, vargsiukai);
+                        diff = std::chrono::high_resolution_clock::now() - start;
+                        cout << "10000000 irasu dalijimas i dvi grupes su ketvirta strategija uztruko: " << diff.count() << endl;
+                    }
                     start = std::chrono::high_resolution_clock::now();
                     vargsiukai.sort(compareElementL);
                     isvedimas_i_failaL(vargsiukai, "rez_stud10000000_vargsiukai.txt");
@@ -787,7 +861,7 @@ int main()
                         cout << "10000000 irasu kietekai irasymas i faila uztruko: " << diff.count() << endl;
                         cout << endl;
                     }
-                    if (y == 2 || y == 3) {
+                    if (y == 2 || y == 3 || y == 4) {
                         start = std::chrono::high_resolution_clock::now();
                         grupeL.sort(compareElementL);
                         isvedimas_i_failaL(grupeL, "rez_stud10000000_kietekai.txt");
@@ -799,6 +873,7 @@ int main()
                     cout << "10000000 irasu testo visa trukme " << diff_viso.count() << endl;
                     grupeL.clear();
                     vargsiukai.clear();
+                    kietekai.clear();
                     cout << endl;
                 }
             }

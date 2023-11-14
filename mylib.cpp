@@ -46,10 +46,10 @@ int ar_tinkamas_pasirinkimas(int a) {
     } while ((a == 1 || a == 0) == false);
     return a;
 }
-int ar_tinkamas_pasirinkimas3(int a) {
+int ar_tinkamas_pasirinkimas4(int a) {
     do {
         try {
-            if (a == 1 || a == 2 || a==3) { break; }
+            if (a == 1 || a == 2 || a==3 || a==4) { break; }
             else { throw std::invalid_argument("Pasirinkimai yra tik 1, 2 arba 3"); }
         }
         catch (const std::invalid_argument& e) {
@@ -59,7 +59,7 @@ int ar_tinkamas_pasirinkimas3(int a) {
             cout << endl << "Veskite pasirinkima dar karta: ";
             iv_ir_tikr(a);
         }
-    } while ((a == 1 || a == 2 || a==3) == false);
+    } while ((a == 1 || a == 2 || a==3 || a==4) == false);
     return a;
 }
 int ar_daugiau0(int a) {
@@ -85,6 +85,12 @@ bool compareElement(studentas& Temp1, studentas& Temp2)
 bool compareGalut(studentas& Temp1, studentas& Temp2)
 {
     return (Temp1.rez_vid < Temp2.rez_vid);
+}
+bool palyg(studentas& Temp) {
+    return (Temp.rez_vid < 5);
+}
+bool palyg2(studentas& Temp) {
+    return (Temp.rez_vid >= 5);
 }
 
 void ivedimas(studentas& Temp) {
@@ -241,9 +247,8 @@ void generavimas(int n, int p, string failas) {
 void rusiavimas1(vector <studentas>& Prad, vector <studentas>& vargsiukai, vector <studentas>& kietekai) {
     for (int i = 0; i < Prad.size(); i++)
     {
-        if (Prad.at(i).rez_vid <= 5) { kietekai.push_back(Prad.at(i)); }
-        else { vargsiukai.push_back(Prad.at(i)); }
-        i++;
+        if (Prad.at(i).rez_vid >= 5) {kietekai.push_back(Prad.at(i)); }
+        else{ vargsiukai.push_back(Prad.at(i)); }
     }
     vargsiukai.shrink_to_fit();
     kietekai.shrink_to_fit();
@@ -252,12 +257,27 @@ void rusiavimas1(vector <studentas>& Prad, vector <studentas>& vargsiukai, vecto
 void rusiavimas2(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
     auto it = Prad.begin();
     while (it != Prad.end()){
-        vargsiukai.push_back(*it);
-        it = Prad.erase(it);
+        if ((*it).rez_vid >= 5) { break; }
+        else {
+            vargsiukai.push_back(*it); it = Prad.erase(it);
+        }
     }
     Prad.shrink_to_fit();
 }
 void rusiavimas3(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
+    int i = 0;
+    do {
+        i++;
+    } while (Prad.at(i).rez_vid < 5);
+    vargsiukai.reserve(i);
+    int j = Prad.size() - i;
+    for (int f = 0; f < i; f++) {
+        vargsiukai.push_back(Prad[i]);
+    }
+    remove_if(Prad.begin(), Prad.end(), palyg);
+    Prad.shrink_to_fit();
+}
+void rusiavimas4(vector <studentas>& Prad, vector <studentas>& vargsiukai) {
     int i = 0;
     do {
         i++;
@@ -316,6 +336,10 @@ bool compareElementL(studentasL& Temp1, studentasL& Temp2) {
 bool compareGalutL(studentasL& Temp1, studentasL& Temp2) {
     if (Temp1.rez_vid < Temp2.rez_vid) { return 1; }
     else { return 0; }
+}
+bool palygL(studentasL& Temp) {
+    if (Temp.rez_vid < 5) { return 1; }
+    else { return 0;}
 }
 
 void galutinis_vidL(studentasL& Temp) {
@@ -411,10 +435,9 @@ void isvedimasL(studentasL& Temp, float galutinis) {
 void rusiavimasL1(list <studentasL>& Prad, list <studentasL>& vargsiukai, list <studentasL>& kietekai) {
     for (auto it = Prad.begin(); it != Prad.end(); ++it)
     {
-        if ((*it).rez_vid >= 5) { kietekai.push_back(*it); }
-        else { vargsiukai.push_back(*it); }
+        if ((*it).rez_vid >= 5) {kietekai.push_back(*it); }
+        else {vargsiukai.push_back(*it); }
     }
-    cout << kietekai.size() << " " << vargsiukai.size();
 }
 void rusiavimasL2(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
     auto i = Prad.begin();
@@ -433,6 +456,17 @@ void rusiavimasL3(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
         else {vargsiukai.push_back(*it); }
         i++;
     }
-    Prad.erase(Prad.begin(), i);
+    Prad.remove_if(palygL);
     i = Prad.begin();
 }
+void rusiavimasL4(list <studentasL>& Prad, list <studentasL>& vargsiukai) {
+    auto i = Prad.begin();
+    for (auto it = Prad.begin(); it != Prad.end(); ++it)
+    {
+        if ((*it).rez_vid >= 5) { break; }
+        else { vargsiukai.push_back(*it); }
+        i++;
+    }
+    Prad.erase(Prad.begin(), i);
+}
+
