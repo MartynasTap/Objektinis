@@ -40,13 +40,16 @@ Remiantis siais duomenimis galima padaryti kelias isvadas:
 3. 4 strategija veikia greciausiai is 1,2,3, o prie jos pridejus remove_if() ir list.remove_if(), rusiavimo sparta pagreiteja vector atveju, bet suleteja list atveju. Taigi vector veikia greiciau naudojant remove_if(), o list veikia greiciau naudojant list.erase().
 
 Pilnu veikimo laiku nuotraukos pateikiamos zemiau:
+
 vector
+
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/2371c4c2-db21-46a8-8f71-57d174415374)
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/456305c5-651f-4089-aefc-86443e45b5a5)
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/c039221d-8fce-4d6f-9154-812f7763896c)
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/f88f1bdf-9500-44e7-8c23-c72e6c2f0844)
 
 list
+
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/f78d974c-1d1a-4ef6-9780-b5cdf5ec8af0)
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/2bff0815-fe00-4254-8b1f-3ebe1adaba48)
 ![image](https://github.com/MartynasTap/Objektinis/assets/145481815/bbeaff25-c2c9-4d5d-986e-750bd86d0e3c)
