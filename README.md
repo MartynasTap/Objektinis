@@ -21,14 +21,16 @@ Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @
 |10000000	|210.203 s	|154.854 s|
 
 ## v1.0
-Programos veikimo spartos analizei isbandytos 3 duomenu rusiavimo i dvi grupes strategijos. 1 - skaidymas i dvi grupes paliekant pradinius duomenis grupe konteineryje. 2 - perkelimas studento duomenu i vargsiuku konteineri ji iskart panaikinant is pradines. 3 - 2 strategija pridejus remove_if() ir list.remove_if() duomenu salinimui is pradinio konteinerio.
+Programos veikimo spartos analizei isbandytos 3 duomenu rusiavimo i dvi grupes strategijos. 1 - skaidymas i dvi grupes paliekant pradinius duomenis grupe konteineryje. 2 - perkelimas studento duomenu i vargsiuku konteineri ji iskart panaikinant is pradines. 3 - 4 strategija pridejus remove_if() ir list.remove_if() duomenu salinimui is pradinio konteinerio, 4 - studento duomenu perkelimas i vargsiuku konteineri ir ju kopijas istrinant is studento konteinerio vienu kartu.
+
+Zemiau pateikiamoje lenteleje yra rusiavimo i dvi grupes trukme priklausomai nuo naudotos strategijos. 
 
 Naudotos testavimui sistemos parametrai: CPU - Intel(R) Core(TM) i5-1035GZ CPU @ 1.20GHz, 1498Mhz; RAM - 8.00 GB HDD - 236 GB;
-|Duomenu kiekis|	1 strategija List	| 1 strategija Vector|	2 strategija List	| 2 strategija Vector|	3 strategija List	| 3 strategija Vector| 4 strategija List | 4 strategija Vector|
+|Duomenu kiekis|	1 strategija Vector	| 1 strategija List|	2 strategija Vector	| 2 strategija List|	3 strategija Vector	| 3 strategija List| 4 strategija Vector | 4 strategija List|
 |---|---|---|---|---|---|---|---|---|
-|1000|
-|10000|
-|100000|
-|1000000|
-|10000000|
+|1000| 0|0.0025248|0.0473961|0.000993|0|0.0009905|
+|10000| 0.0156885|0.0146857|2.67553|0.0049632|0.0019951|0.0073684|
+|100000|0.0477145|0.142187|525.383|0.0577773|0.0172618|0.0840933|
+|1000000|0.504343|1.48332|>10min|0.635827|0.19523|0.957471|
+|10000000|6.22116|33.8217|>10min|11.177|2.21647|20.3378|
 
